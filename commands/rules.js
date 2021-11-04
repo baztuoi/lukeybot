@@ -1,5 +1,5 @@
 module.exports = {
-	name: 'info',
+	name: 'rulesiterige',
 	description: "Information!",
 	async execute(client, message, args, Discord){
 		
