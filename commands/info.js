@@ -5,12 +5,12 @@ module.exports = {
 		
 
 const { MessageEmbed } = require('discord.js');
-const bot = require('../config/info.json')
+const infos = require('../config/info.json')
 const info = new MessageEmbed()
 	.setColor('#339cff')
 	.setAuthor("Lukey Bot")
-	.addField("Author", `${bot.author}`, true)
-	.addField("Version", `${bot.version}`, true)
+	.addField("Author", `${infos.author}`, true)
+	.addField("Version", `${infos.version}`, true)
 	.addField("Creation Date", "4/10/2021", true)
 
 

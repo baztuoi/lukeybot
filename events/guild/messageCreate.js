@@ -1,5 +1,6 @@
 module.exports = (client, Discord, messageCreate) =>{
-    const prefix = '-';
+    const prefixf = require('../../config/prefix.json');
+    const prefix = prefixf.prefix;
     if(!messageCreate.content.startsWith(prefix) || messageCreate.author.bot) return;
 
     const fs = require('fs');
