@@ -54,6 +54,7 @@ module.exports = {
         
 
     if (!message.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)) {
+        message.delete();
         message.channel.send({ embeds: [noperm] }).then(message => {
             setTimeout(() => message.delete(), 3500)
         })
