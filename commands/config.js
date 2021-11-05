@@ -36,6 +36,11 @@ module.exports = {
                 .setTitle(":warning: Error")
                 .setDescription("You have not specified a valid option.")
 
+            const noperm = new MessageEmbed()
+                .setColor('#ff3939')
+                .setTitle(":warning: Error")
+                .setDescription("You do not have permission to use this command.")
+
             const success = new MessageEmbed()
                 .setColor('#82ff80')
                 .setTitle(":white_check_mark: Success!")
@@ -49,7 +54,10 @@ module.exports = {
         
 
     if (!message.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)) {
-        message.channel.send("You do not have permission");
+        message.channel.send({ embeds: [noperm] }).then(message => {
+            setTimeout(() => message.delete(), 3500)
+        })
+        .catch
         return;
     } else
         if(!args[0]){
