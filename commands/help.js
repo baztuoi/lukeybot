@@ -16,7 +16,7 @@ module.exports = {
             .setDescription("*List of commands and features provided by NeoBot.*")
 			.addField(`\`${thisGuild}config [option] [option]\``, "Configurate your bot and setup.")
 			.addField(`\`${thisGuild}info\``, "View the general information of NeoBot.")
-			.addField(`\`${thisGuild}feedback [text]\``, "Send a letter of encouragement to the encourage channel.")
+			.addField(`\`${thisGuild}feedback [text]\``, "Send a letter of encouragement or feedback to Lukey :)")
 			.addField(`\`${thisGuild}8ball [question]\``, "Test your luck with the 8ball command.")
 
 			message.channel.send({ embeds: [help] })
