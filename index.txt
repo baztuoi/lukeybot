@@ -6,7 +6,7 @@ const client = new Discord.Client({
         parse: ['users', 'roles'],
         repliedUser: true,
 
-    },
+    },test
     intents: [
         "GUILDS",
         "GUILD_MESSAGES",
