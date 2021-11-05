@@ -5,3 +5,5 @@ config
 config/token.json
 
 .gitignore
+
+config/info.json
