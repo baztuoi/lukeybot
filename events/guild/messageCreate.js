@@ -20,7 +20,10 @@ module.exports = (client, Discord, messageCreate, message) =>{
             .setTitle('This command does not exist!')
             .setDescription('Please refer to -help for a list of commands!')
 
-            messageCreate.channel.send({ embeds: [nocmd] })
+            messageCreate.channel.send({ embeds: [nocmd] }).then(message => {
+                setTimeout(() => message.delete(), 3500)
+            })
+            .catch
 
     }
 
