@@ -1,6 +1,9 @@
 const fs = require('fs');
-
+const event = (event) => require(`../events/guild/${event}`);
 module.exports = (client, Discord) =>{
+
+    client.on('guildCreate', event('join'));
+
     const load_dir = (dirs) =>{
         const event_files = fs.readdirSync(`./events/${dirs}`).filter(file => file.endsWith('.js'));
 

@@ -1,6 +1,7 @@
-module.exports = (client, Discord, messageCreate) =>{
-    const prefixf = require('../../config/prefix.json');
-    const prefix = prefixf.prefix;
+module.exports = (client, Discord, messageCreate, message) =>{
+    const guild = messageCreate.guild.id;
+    const thisGuild = require(`../../guilds/${guild}.json`)
+    const prefix = thisGuild.prefix
     if(!messageCreate.content.startsWith(prefix) || messageCreate.author.bot) return;
 
     const fs = require('fs');

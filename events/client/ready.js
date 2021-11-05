@@ -1,8 +1,8 @@
 module.exports = (client, Discord) =>{
     console.log('Online.')
 
-    client.user.setActivity("Hypixel Bedwars | 200 ⭐️ // !discord", {
+    client.user.setActivity("Developed by baztuoi", {
         type: "STREAMING",
-        url: "https://www.twitch.tv/xziigames"
+        url: ""
       });
 }
