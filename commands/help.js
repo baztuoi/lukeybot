@@ -6,7 +6,6 @@ module.exports = {
         const { MessageEmbed } = require('discord.js');
 
 
-		message.delete();
 		const guild = message.guild.id
         const tg = require(`../guilds/${guild}.json`)
      	const thisGuild = tg.prefix
