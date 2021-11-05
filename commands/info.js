@@ -3,6 +3,7 @@ module.exports = {
 	description: "Information!",
 	async execute(client, message, args, Discord){
 		
+		message.delete();
 
 const { MessageEmbed } = require('discord.js');
 const infos = require('../config/info.json')
