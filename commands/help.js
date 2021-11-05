@@ -18,6 +18,7 @@ module.exports = {
 			.addField(`\`${thisGuild}info\``, "View the general information of NeoBot.")
 			.addField(`\`${thisGuild}feedback [text]\``, "Send a letter of encouragement or feedback to Lukey :)")
 			.addField(`\`${thisGuild}8ball [question]\``, "Test your luck with the 8ball command.")
+			.addField(`\`${thisGuild}suggest [text]\``, "Send a suggestion to the bot developer!")
 
 			message.channel.send({ embeds: [help] })
 
