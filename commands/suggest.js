@@ -11,7 +11,28 @@ module.exports = {
 
         const input = args.slice(0).join(' ');
 
-        fs.writeFileSync(`./suggests/${random}${message.author.id}.txt`, `[${message.author.username}#${message.author.discriminator} ${d.toLocaleTimeString()} ${d.toLocaleDateString()}] ${input}`);
+        if(!input){
+            message.delete()
+            const { MessageEmbed } = require('discord.js');
+            const ens = new MessageEmbed()
+                .setColor('#ff3939')
+                .setTitle(":warning: Error")
+                .setDescription("You have not specified any input.")
 
+			message.channel.send({ embeds: [ens] }).then(message => {
+                setTimeout(() => message.delete(), 3500)
+            })
+        } else {
+        message.delete();
+        fs.writeFileSync(`./suggests/${random}${message.author.id}.txt`, `[${message.author.username}#${message.author.discriminator} ${d.toLocaleTimeString()} ${d.toLocaleDateString()}] ${input}`);
+        const { MessageEmbed } = require('discord.js');
+            const ens1 = new MessageEmbed()
+                .setColor('#5eff7e')
+                .setTitle(":white_check_mark: Success!")
+                .setDescription("Your suggestion has been sent to the bot developer!")
+                .setTimestamp()
+
+			message.author.send({ embeds: [ens1] })
+        }
 	}
 }
