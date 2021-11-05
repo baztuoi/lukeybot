@@ -19,7 +19,7 @@ module.exports = {
             const noargs = new MessageEmbed()
                 .setColor('#ff3939')
                 .setTitle(":warning: Error")
-                .setDescription("You have not specificed a setup. \n \n``prefix``\n ``encourage``")
+                .setDescription("You have not specificed a setup. \n \n``prefix``\n ``feedback``")
 
             const pns = new MessageEmbed()
                 .setColor('#ff3939')
@@ -29,7 +29,7 @@ module.exports = {
             const ens = new MessageEmbed()
                 .setColor('#ff3939')
                 .setTitle(":warning: Error")
-                .setDescription("You have not specified your new encourage channel.")
+                .setDescription("You have not specified your new feedback channel.")
 
             const defaultz = new MessageEmbed()
                 .setColor('#ff3939')
@@ -45,6 +45,11 @@ module.exports = {
                 .setColor('#82ff80')
                 .setTitle(":white_check_mark: Success!")
                 .setDescription(`You have updated your prefix to ` + `\`${args[1]}\``)
+
+            const success2 = new MessageEmbed()
+                .setColor('#82ff80')
+                .setTitle(":white_check_mark: Success!")
+                .setDescription(`You have updated your feedback channel to ` + `\`${args[1]}\``)
 
 
 // command 
@@ -106,7 +111,7 @@ module.exports = {
 
                         /// end
                         break;
-                        case "encourage":
+                        case "feedback":
                             if(args[1]){
 
                                 message.delete();
@@ -123,7 +128,7 @@ module.exports = {
                            
                                   const data = JSON.stringify(jsonFile);
                                   fs.writeFileSync(`./guilds/${guild}.json`, data);
-                                  message.channel.send({ embeds: [success] }).then(message => {
+                                  message.channel.send({ embeds: [success2] }).then(message => {
                                     setTimeout(() => message.delete(), 3500)
                                 })
                                 .catch
