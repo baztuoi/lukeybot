@@ -1,3 +1,5 @@
+const colors = require('../config/colors.json')
+
 module.exports = {
 	name: 'feedback',
 	description: "Information!",
@@ -19,7 +21,7 @@ module.exports = {
 
             const { MessageEmbed } = require('discord.js');
             const ens = new MessageEmbed()
-                .setColor('#ff3939')
+                .setColor(colors.red)
                 .setTitle(":warning: Error")
                 .setDescription("There is no feedback channel set.")
 
@@ -35,7 +37,7 @@ module.exports = {
 
             const { MessageEmbed } = require('discord.js');
             const ens = new MessageEmbed()
-                .setColor('#ff3939')
+                .setColor(colors.red)
                 .setTitle(":warning: Error")
                 .setDescription("You have not specified any input.")
 
@@ -47,7 +49,7 @@ module.exports = {
         } else {
             const { MessageEmbed } = require('discord.js');
             const ens2 = new MessageEmbed()
-                    .setColor('#5eff7e')
+                    .setColor(colors.green)
                     .setAuthor(`${message.author.username}#${message.author.discriminator}`)
                     .setTitle(`Feedback Received`)
                     .setDescription(`${input}`)

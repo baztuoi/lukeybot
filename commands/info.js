@@ -1,3 +1,5 @@
+const colors = require('../config/colors.json')
+
 module.exports = {
 	name: 'info',
 	description: "Information!",
@@ -6,7 +8,7 @@ module.exports = {
 const { MessageEmbed } = require('discord.js');
 const infos = require('../config/info.json')
 const info = new MessageEmbed()
-	.setColor('#339cff')
+	.setColor(colors.blue)
 	.setAuthor("Neo Bot")
 	.addField("Author", `${infos.author}`, true)
 	.addField("Version", `${infos.version}`, true)

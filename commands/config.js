@@ -1,3 +1,5 @@
+const colors = require('../config/colors.json')
+
 module.exports = {
 	name: 'config',
 	description: "config",
@@ -17,37 +19,37 @@ module.exports = {
             const { MessageEmbed } = require('discord.js');
 
             const noargs = new MessageEmbed()
-                .setColor('#ff3939')
+                .setColor(colors.red)
                 .setTitle(":warning: Error")
                 .setDescription("You have not specificed a setup. \n \n``prefix``\n ``feedback``")
 
             const pns = new MessageEmbed()
-                .setColor('#ff3939')
+                .setColor(colors.red)
                 .setTitle(":warning: Error")
                 .setDescription("You have not specified your new prefix.")
 
             const ens = new MessageEmbed()
-                .setColor('#ff3939')
+                .setColor(colors.red)
                 .setTitle(":warning: Error")
                 .setDescription("You have not specified your new feedback channel.")
 
             const defaultz = new MessageEmbed()
-                .setColor('#ff3939')
+                .setColor(colors.red)
                 .setTitle(":warning: Error")
                 .setDescription("You have not specified a valid option.")
 
             const noperm = new MessageEmbed()
-                .setColor('#ff3939')
+                .setColor(colors.red)
                 .setTitle(":warning: Error")
                 .setDescription("You do not have permission to use this command.")
 
             const success = new MessageEmbed()
-                .setColor('#82ff80')
+                .setColor(colors.green)
                 .setTitle(":white_check_mark: Success!")
                 .setDescription(`You have updated your prefix to ` + `\`${args[1]}\``)
 
             const success2 = new MessageEmbed()
-                .setColor('#82ff80')
+                .setColor(colors.green)
                 .setTitle(":white_check_mark: Success!")
                 .setDescription(`You have updated your feedback channel to ` + `\`${args[1]}\``)
 

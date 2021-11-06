@@ -1,3 +1,5 @@
+const colors = require('../config/colors.json')
+
 module.exports = {
 	name: 'suggest',
 	description: "sg",
@@ -15,7 +17,7 @@ module.exports = {
             message.delete()
             const { MessageEmbed } = require('discord.js');
             const ens = new MessageEmbed()
-                .setColor('#ff3939')
+                .setColor(colors.red)
                 .setTitle(":warning: Error")
                 .setDescription("You have not specified any input.")
 
@@ -27,7 +29,7 @@ module.exports = {
         fs.writeFileSync(`./suggests/${random}${message.author.id}.txt`, `[${message.author.username}#${message.author.discriminator} ${d.toLocaleTimeString()} ${d.toLocaleDateString()}] ${input}`);
         const { MessageEmbed } = require('discord.js');
             const ens1 = new MessageEmbed()
-                .setColor('#5eff7e')
+                .setColor(colors.green)
                 .setTitle(":white_check_mark: Success!")
                 .setDescription("Your suggestion has been sent to the bot developer!")
                 .setTimestamp()

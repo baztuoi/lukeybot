@@ -1,3 +1,5 @@
+const colors = require('../config/colors.json')
+
 module.exports = {
 	name: 'help',
 	description: "Information!",
@@ -11,7 +13,7 @@ module.exports = {
      	const thisGuild = tg.prefix
 
         const help = new MessageEmbed()
-            .setColor('#3898ff')
+            .setColor(colors.blue)
             .setTitle("NeoBot Help Menu")
             .setDescription("*List of commands and features provided by NeoBot.*")
 			.addField(`\`${thisGuild}config [option] [option]\``, "Configurate your bot and setup.")

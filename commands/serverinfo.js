@@ -1,3 +1,5 @@
+const colors = require('../config/colors.json')
+
 module.exports = {
 	name: 'serverinfo',
 	description: "Information!",
@@ -22,7 +24,7 @@ module.exports = {
 
         const { MessageEmbed } = require('discord.js');
             const info = new MessageEmbed()
-                .setColor('#479aff')
+                .setColor(colors.blue)
                 .setTitle("Server Information")
                 .setDescription("General information about the server you are in!")
                 .setAuthor(guildName, serverIcon)

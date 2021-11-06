@@ -1,3 +1,6 @@
+const colors = require('../config/colors.json')
+
+
 module.exports = {
 	name: '8ball',
 	description: "8ball",
@@ -39,7 +42,7 @@ let outcomes = [
         const { MessageEmbed } = require('discord.js');
 
             const noargs = new MessageEmbed()
-                .setColor('#ff3939')
+                .setColor(colors.red)
                 .setTitle(":warning: Error")
                 .setDescription("You haven't chosen anything to predict!")
 
