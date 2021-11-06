@@ -5,4 +5,11 @@ module.exports = (client, Discord) =>{
         type: "STREAMING",
         url: ""
       });
+
+      client.user.setPresence({
+        game: { name: 'NeoBot | -help' },
+        status: 'online',
+       });
+
+
 }
