@@ -1,15 +1,15 @@
 module.exports = (client, Discord) =>{
     console.log('Online.')
 
-    client.user.setActivity("Developed by baztuoi", {
-        type: "STREAMING",
-        url: ""
-      });
+    client.user.setPresence({
+      status: 'online',
+      activity: {
+          name: "NeoBot | -help",
+          type: "PLAYING"
+      }
+  });
 
-      client.user.setPresence({
-        game: { name: 'NeoBot | -help' },
-        status: 'online',
-       });
+      
 
 
 }
