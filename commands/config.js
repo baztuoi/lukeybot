@@ -21,7 +21,7 @@ module.exports = {
             const noargs = new MessageEmbed()
                 .setColor(colors.red)
                 .setTitle(":warning: Error")
-                .setDescription("You have not specificed a setup. \n \n``prefix``\n ``feedback``")
+                .setDescription("You have not specificed a setup. \n \n``prefix``\n ``feedback``\n ``admin``")
 
             const pns = new MessageEmbed()
                 .setColor(colors.red)
@@ -53,15 +53,21 @@ module.exports = {
                 .setTitle(":white_check_mark: Success!")
                 .setDescription(`You have updated your feedback channel to ` + `\`${args[1]}\``)
 
+            const success3 = new MessageEmbed()
+                .setColor(colors.green)
+                .setTitle(":white_check_mark: Success!")
+                .setDescription(`You have updated your Administrator Role to ` + `\`${args[1]}\``)
+            
+
 
 // command 
 
         const { Permissions } = require('discord.js');
 
-        
+        const userGuild = message.guild.id
+        const guildFile = require(`../guilds/${userGuild}.json`)
 
-    if (!message.member.permissions.has(Permissions.FLAGS.ADMINISTRATOR)) {
-        message.delete();
+    if (!message.member.roles.cache.some(role => role.name === guildFile.moderator)) {
         message.channel.send({ embeds: [noperm] }).then(message => {
             setTimeout(() => message.delete(), 3500)
         })
@@ -131,6 +137,38 @@ module.exports = {
                                   const data = JSON.stringify(jsonFile);
                                   fs.writeFileSync(`./guilds/${guild}.json`, data);
                                   message.channel.send({ embeds: [success2] }).then(message => {
+                                    setTimeout(() => message.delete(), 3500)
+                                })
+                                .catch
+                            } else {
+
+                                message.delete();
+                                
+                                message.channel.send({ embeds: [ens] }).then(message => {
+                                    setTimeout(() => message.delete(), 3500)
+                                })
+                                .catch
+                            }
+                        break;
+                        case "admin":
+                            if(args[1]){
+
+                                message.delete();
+
+                                const guild = message.guild.id
+
+                                const tge = require(`../guilds/${guild}.json`)
+                                const thisGuildp = tge.prefix
+
+                                const jsonFile = { 
+                                    prefix: thisGuildp,
+                                    encourage: tge.encourage,
+                                    moderator: args[1]
+                                  };
+                           
+                                  const data = JSON.stringify(jsonFile);
+                                  fs.writeFileSync(`./guilds/${guild}.json`, data);
+                                  message.channel.send({ embeds: [success3] }).then(message => {
                                     setTimeout(() => message.delete(), 3500)
                                 })
                                 .catch
