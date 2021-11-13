@@ -24,4 +24,4 @@ client.events = new Discord.Collection();
   require(`./handlers/${handler}`)(client, Discord);
 })
 
-client.login(token.token)
+client.login(token.token2)
