@@ -1,18 +1,12 @@
-module.exports = (client, Discord, messageCreate) =>{
+module.exports = (client, Discord, messageCreate, guildMember) =>{
 
     const fs = require('fs');
 
-    const welcomeChannel = '796538164193394708'
+
+    const joinRole = guild.roles.cache.find(role => role.name === 'Member');
 
     client.on('guildMemberAdd', member => {
-        member.roles.add(member.guild.roles.cache.find(i => i.name === 'logs'))
-    
-        const welcomeEmbed = new Discord.MessageEmbed()
-    
-        welcomeEmbed.setColor('#5cf000')
-        welcomeEmbed.setTitle('**' + member.user.username + '** is now Among Us other **' + member.guild.memberCount + '** people')
-    
-        member.guild.channels.cache.find(i => i.name === 'logs').messageCreate(welcomeEmbed)
+        guildMember.roles.add(joinRole);
     })
     
     
