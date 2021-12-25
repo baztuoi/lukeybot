@@ -58,6 +58,11 @@ module.exports = {
                 .setTitle(":white_check_mark: Success!")
                 .setDescription(`You have updated your Administrator Role to ` + `\`${args[1]}\``)
             
+            const successJOINROLE = new MessageEmbed()
+                .setColor(colors.green)
+                .setTitle(":white_check_mark: Success!")
+                .setDescription(`You have updated your join role to ` + `\`${args[1]}\``)
+            
 
 
 // command 
@@ -149,6 +154,47 @@ module.exports = {
                                 })
                                 .catch
                             }
+                        break;
+                        case "joinrole":
+
+
+
+                            if(args[1]){
+
+                                message.delete();
+
+                                const guild = message.guild.id
+
+                                const tge = require(`../guilds/${guild}.json`)
+                                const thisGuildp = tge.prefix
+
+                                const jsonFile = { 
+                                    prefix: thisGuildp,
+                                    encourage: tge.encourage,
+                                    moderator: tge.moderator,
+                                    joinrole: args[1]
+                                  };
+                           
+                                  const data = JSON.stringify(jsonFile);
+                                  fs.writeFileSync(`./guilds/${guild}.json`, data);
+                                  message.channel.send({ embeds: [successJOINROLE] }).then(message => {
+                                    setTimeout(() => message.delete(), 3500)
+                                })
+                                .catch
+                            } else {
+
+                                message.delete();
+                                
+                                message.channel.send({ embeds: [ens] }).then(message => {
+                                    setTimeout(() => message.delete(), 3500)
+                                })
+                                .catch
+                            }
+
+
+
+
+
                         break;
                         case "admin":
                             if(args[1]){
