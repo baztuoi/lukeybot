@@ -22,7 +22,7 @@ module.exports = {
             new MessageButton()
                 .setLabel('bans.forbiddon.net')
                 .setStyle('LINK')
-				.setURL("https://bans.forbiddon.net")
+				.setURL("http://bans.forbiddon.net")
         );
 
         await message.channel.send({ embeds: [line1], components: [row] });
